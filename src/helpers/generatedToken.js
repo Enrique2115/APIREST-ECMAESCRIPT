@@ -11,9 +11,9 @@ export const tokenSign = (user) => {
      * example: 30s, 1h, 2 days
      * jwt.sign({ id: userId }, JWT_SECRET, {expiresIn: "1h"} (err, token) => {
      */
-    const { id_login: id } = user;
+    const { id_user: id } = user;
 
-    jwt.sign({ id }, JWT_SECRET, { expiresIn: "2h" }, (err, token) => {
+    jwt.sign({ id }, JWT_SECRET, { expiresIn: "3d" }, (err, token) => {
       err ? reject(err) : resolve(token);
     });
   });
