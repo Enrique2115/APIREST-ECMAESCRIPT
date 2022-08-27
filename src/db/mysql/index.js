@@ -1,5 +1,5 @@
 import Sequelize from "sequelize";
-import { DATABASE } from "../../config";
+import { DATABASE, TZ_SEQUELIZE } from "../../config";
 
 const {
   CleverCloud: { DB_HOST, DB_USER, DB_NAME, DB_PASSWORD },
@@ -18,4 +18,5 @@ export const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
     /* Preventing Sequelize from pluralizing the table names. */
     freezeTableName: true,
   },
+  timezone: TZ_SEQUELIZE,
 });

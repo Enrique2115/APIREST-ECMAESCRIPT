@@ -1951,7 +1951,7 @@ homedir-polyfill@^1.0.1:
   dependencies:
     parse-passwd "^1.0.0"
 
-http-errors@2.0.0, http-errors@^2.0.0:
+http-errors@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-2.0.0.tgz#b7774a1486ef73cf7667ac9ae0858c012c57b9d3"
   integrity sha512-FtwrG/euBzaEjYeRqOgly7G0qviiXoJWnvEH2Z1plBdXgbyjv34pHTSb9zoeHMyDy33+DWy5Wt9Wo+TURtOYSQ==
@@ -2557,6 +2557,11 @@ node-releases@^2.0.6:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.6.tgz#8a7088c63a55e493845683ebf3c828d8c51c5503"
   integrity sha512-PiVXnNuFm5+iYkLBNeq5211hvO38y63T0i2KKh2KnUs3RpzJ+JtODFjkD8yjLwnDkTYF1eKXheUwdssR+NRZdg==
 
+nodemailer@^6.7.8:
+  version "6.7.8"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.7.8.tgz#9f1af9911314960c0b889079e1754e8d9e3f740a"
+  integrity sha512-2zaTFGqZixVmTxpJRCFC+Vk5eGRd/fYtvIR+dl5u9QXLTQWGIf48x/JXvo58g9sa0bU6To04XUv554Paykum3g==
+
 nodemon@^2.0.18:
   version "2.0.19"
   resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-2.0.19.tgz#cac175f74b9cb8b57e770d47841995eebe4488bd"
@@ -2826,6 +2831,11 @@ qs@6.10.3:
   integrity sha512-wr7M2E0OFRfIfJZjKGieI8lBKb7fRCH4Fv5KNPEs7gJ8jadvotdsS08PzOKR7opXhZ/Xkjtt3WF9g38drmyRqQ==
   dependencies:
     side-channel "^1.0.4"
+
+rand-token@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/rand-token/-/rand-token-1.0.1.tgz#a47fdfd94894cc349d74234403c4b24624733c58"
+  integrity sha512-Zri5SfJmEzBJ3IexFdigvPSCamslJ7UjLkUn0tlgH7COJvaUr5V7FyUYgKifEMTw7gFO8ZLcWjcU+kq8akipzg==
 
 range-parser@~1.2.1:
   version "1.2.1"

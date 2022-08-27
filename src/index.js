@@ -6,6 +6,7 @@ import { sequelize } from "./db/mysql";
 
 import "./models/user.model";
 import "./models/role.model";
+import "./models/refreshToken.model";
 
 // //Descomentar cuando se use MongoDB
 // import "./db/mongodb";
