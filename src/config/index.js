@@ -24,11 +24,9 @@ export const DATABASE = {
 
 export const JWT_SECRET = process.env.JWT_SECRET || "secret";
 
-export const JWT = {
-  id: process.env.idJWT,
-  nombre: process.env.nombre,
-  email: process.env.email,
-};
+export const JWT_EXPIRATION = process.env.JWT_EXPIRATION;
+
+export const JWT_REFRESH_EXPIRATION = process.env.JWT_REFRESH_EXPIRATION;
 
 export const CLOUDINARY = {
   CLOUD_NAME: process.env.CLOUD_NAME,
@@ -37,3 +35,14 @@ export const CLOUDINARY = {
 };
 
 export const DB_MONGO_URI = process.env.MONGO_HOST;
+
+export const MAILTRAP = {
+  MAIL_HOST: process.env.MAIL_HOST,
+  MAIL_PORT: process.env.MAIL_PORT,
+  MAIL_USER: process.env.MAIL_USERNAME,
+  MAIL_PASS: process.env.MAIL_PASSWORD,
+};
+
+export const URL_FRONTEND = process.env.URL_FRONTEND;
+
+export const TZ_SEQUELIZE = process.env.TZ_SEQUELIZE;
