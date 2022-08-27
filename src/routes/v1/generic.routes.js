@@ -1,9 +1,13 @@
 import { Router } from "express";
 import {
+  changePasswordCtlr,
   loginCtlr,
   registerCtlr,
+  forgotPasswordCtlr,
   uploadImageCtlr,
   validationCtlr,
+  refreshTokenCtlr,
+  recoverPasswordCtlr,
 } from "../../controllers/generic.controller";
 import { checkAuth } from "../../middlewares/auth.middleware";
 import { checkRoleAuth } from "../../middlewares/role.middleware";
@@ -13,16 +17,30 @@ import upload from "../../helpers/handleMulter";
 const routes = Router();
 
 routes
-  .get("/render", (req, res) => {
-    res.render("index");
-  })
-
   .post("/login", loginCtlr)
 
   .post("/register", registerCtlr)
 
+  .post("/change-password", checkAuth, changePasswordCtlr)
+
+  .post("/forgot-password", forgotPasswordCtlr)
+
+  .post("/recover-password", recoverPasswordCtlr)
+
+  .post("/refresh-token", refreshTokenCtlr)
+
   .get("/verify-token", checkAuth, checkRoleAuth(["employee"]), validationCtlr)
 
-  .post("/upload-images/:folder", upload.array("image"), uploadImageCtlr);
+  //endpoint para subir imagenes
+  .get("/render", (req, res) => {
+    res.render("index");
+  })
+
+  .post("/upload-images/:folder", upload.array("image"), uploadImageCtlr)
+
+  //prueba
+  .get("/prueba", checkAuth, (req, res) => {
+    res.send("Hola mundo");
+  });
 
 export default routes;
