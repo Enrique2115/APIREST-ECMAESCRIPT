@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken";
-import { JWT_SECRET } from "../config";
+import jwt, { TokenExpiredError } from "jsonwebtoken";
+import { JWT_SECRET, JWT_EXPIRATION } from "../config";
 
 export const tokenSign = (user) => {
   return new Promise((resolve, reject) => {
@@ -13,15 +13,35 @@ export const tokenSign = (user) => {
      */
     const { id_user: id } = user;
 
-    jwt.sign({ id }, JWT_SECRET, { expiresIn: "3d" }, (err, token) => {
-      err ? reject(err) : resolve(token);
-    });
+    jwt.sign(
+      { id },
+      JWT_SECRET,
+      { expiresIn: Number(JWT_EXPIRATION) },
+      (err, token) => {
+        err ? reject(err) : resolve(token);
+      }
+    );
   });
 };
 
-export const verifyToken = (token) => {
+const catchError = (err, res) => {
+  if (err instanceof TokenExpiredError) {
+    return res
+      .status(401)
+      .send({ message: "¡No autorizado! El token de acceso ha caducado." });
+  }
+  return res.status(401).send({ message: "¡No autorizado!" });
+};
+
+export const verifyToken = (token, res) => {
   try {
-    return jwt.verify(token, JWT_SECRET);
+    return jwt.verify(token, JWT_SECRET, (err, info) => {
+      if (err) {
+        return catchError(err, res);
+      }
+
+      return info;
+    });
   } catch (error) {
     return null;
   }

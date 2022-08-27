@@ -7,13 +7,11 @@ export const checkAuth = async (req, res, next) => {
     if (typeof bearerHeader !== "undefined") {
       const bearerToken = bearerHeader.split(" ")[1];
 
-      const tokenData = await verifyToken(bearerToken);
+      const tokenData = await verifyToken(bearerToken, res);
 
-      tokenData?.id
-        ? next()
-        : res.status(401).json({ message: "Error de comprobacion del token" });
+      tokenData?.id && next();
     } else {
-      return res.status(401).json({ message: "No presenta token" });
+      return res.status(403).json({ message: "No presenta token" });
     }
   } catch (error) {
     next(error);
