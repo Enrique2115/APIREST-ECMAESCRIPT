@@ -8,7 +8,7 @@ import {
   validationCtlr,
   refreshTokenCtlr,
   recoverPasswordCtlr,
-} from "../../controllers/generic.controller";
+} from "../../controllers/auth.controller";
 import { checkAuth } from "../../middlewares/auth.middleware";
 import { checkRoleAuth } from "../../middlewares/role.middleware";
 

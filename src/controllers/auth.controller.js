@@ -1,14 +1,15 @@
 import fs from "fs";
-import { uploads } from "../helpers/handleCloudinary";
-import { tokenSign } from "../helpers/generatedToken";
-import { comparePassword, hashPassword } from "../libs/handleBcrypt";
-import { User } from "../models/user.model";
-import { Role } from "../models/role.model";
+import { uid } from "rand-token";
 import { Op } from "sequelize";
 
-import { uid } from "rand-token";
+import { uploads } from "../helpers/handleCloudinary";
+import { tokenSign } from "../helpers/generatedToken";
 import { sendEmail } from "../libs/handleSendEmail";
-import { RefreshToken } from "../models/refreshToken.model";
+import { comparePassword, hashPassword } from "../libs/handleBcrypt";
+
+import { User } from "../models/User/user.model";
+import { Role } from "../models/User/role.model";
+import { RefreshToken } from "../models/User/refreshToken.model";
 
 /**
  * It takes the username and password from the request body, checks if the user exists, if it does, it checks if the password is correct, if it is, it creates a token and a refresh token and sends them back to the client

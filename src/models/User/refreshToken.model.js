@@ -1,7 +1,7 @@
 import { uid } from "rand-token";
 import { DataTypes } from "sequelize";
-import { JWT_REFRESH_EXPIRATION } from "../config";
-import { sequelize } from "../db/mysql";
+import { JWT_REFRESH_EXPIRATION } from "../../config";
+import { sequelize } from "../../db/mysql";
 import { User } from "./user.model";
 
 const RefreshToken = sequelize.define("refresh_token", {
