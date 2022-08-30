@@ -19,4 +19,7 @@ export const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
     freezeTableName: true,
   },
   timezone: TZ_SEQUELIZE,
+  /* If the environment is production, then logging is false. If not, then logging
+  is console.log. */
+  logging: process.env.NODE_ENV === "production" ? false : console.log,
 });
