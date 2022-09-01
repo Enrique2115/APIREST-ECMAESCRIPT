@@ -10,7 +10,7 @@ import "./models";
 // import "./db/mongodb";
 
 //imports rutas personalizadas
-import AuthRoute from "./routes/v1/auth.routes";
+import ROUTES from "./routes/v1";
 
 import { initialRoles } from "./models/User/role.model";
 
@@ -20,12 +20,12 @@ import { initialRoles } from "./models/User/role.model";
 
 async function main() {
   try {
-    await sequelize.sync();
+    // await sequelize.sync();
 
     // await sequelize.sync({ force: true }).then(() => initialRoles());
 
     //---- Routes Personalizadas ----//
-    app.use("/api/v1/auth", AuthRoute);
+    app.use("/api/v1", ROUTES);
 
     app.use(handleError); //---- Manejo de errores ----//
 
