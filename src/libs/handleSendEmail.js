@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
-import { MAILTRAP, URL_FRONTEND } from "../config";
-import { templateEmail } from "../views/templateEmail";
+import { MAILTRAP, URL_FRONTEND } from "../config/index.js";
+import { templateEmail } from "../views/templateEmail.js";
 
 export function sendEmail(email, token) {
   const mail = nodemailer.createTransport({

@@ -2,16 +2,19 @@ import express from "express";
 import cors from "cors";
 import path from "path";
 import morgan from "morgan";
-import socketIO from "socket.io";
-import pkg from "../package.json";
+import { Server } from "socket.io";
+import pkg from "../package.json" assert { type: "json" };
+import { fileURLToPath } from "url";
+
+const __dirname = fileURLToPath(import.meta.url);
 
 import { createServer } from "http";
-import { corsOptions } from "./middlewares/cors.middleware";
+import { corsOptions } from "./middlewares/cors.middleware.js";
 
 const app = express();
 export const server = createServer(app);
 
-export const io = socketIO(server, {
+export const io = new Server(server, {
   transports: ["polling"],
   cors: {
     cors: {
@@ -31,22 +34,6 @@ io.on("connection", (socket) => {
     console.log(`socket ${socket.id} disconnected`);
   });
 });
-
-// const whitelist = [
-//   "http://localhost:3000",
-//   "http://localhost:9000",
-//   "https://segas-admin.000webhostapp.com",
-//   "https://segas-prueba.netlify.app",
-// ];
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1 || !origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   },
-// };
 
 app.set("json spaces", 2);
 app.set("pkg", pkg);

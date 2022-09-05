@@ -8,11 +8,11 @@ import {
   validationCtlr,
   refreshTokenCtlr,
   recoverPasswordCtlr,
-} from "../../controllers/auth.controller";
-import { checkAuth } from "../../middlewares/auth.middleware";
-import { checkRoleAuth } from "../../middlewares/role.middleware";
+} from "../../controllers/auth.controller.js";
+import { checkAuth } from "../../middlewares/auth.middleware.js";
+import { checkRoleAuth } from "../../middlewares/role.middleware.js";
 
-import upload from "../../helpers/handleMulter";
+import upload from "../../helpers/handleMulter.js";
 
 const routes = Router();
 

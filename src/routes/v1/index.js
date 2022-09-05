@@ -1,5 +1,9 @@
 import { Router } from "express";
 import fs from "fs";
+import { fileURLToPath } from "url";
+import path from "path";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const routes = Router();
 
@@ -13,9 +17,8 @@ fs.readdirSync(__dirname).forEach(async (file) => {
 
   if (name !== "index") {
     try {
-      const item = await import(`./${name}.routes`);
+      const item = await import(`./${name}.routes.js`);
       routes.use(`/${name}`, item.default);
-
       // console.log(`Cargando ruta ${name}`);
     } catch (error) {
       console.log(error.message);

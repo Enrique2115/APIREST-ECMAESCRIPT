@@ -1,4 +1,4 @@
-import { ServerError } from "./ServerResponse";
+import { ServerError } from "./ServerResponse.js";
 
 export function handleError(err, req, res, next) {
   const message = err.message || "Error de servidor interno";

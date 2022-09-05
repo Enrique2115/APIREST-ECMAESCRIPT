@@ -1,15 +1,17 @@
 import fs from "fs";
-import { uid } from "rand-token";
+import rand from "rand-token";
 import { Op } from "sequelize";
 
-import { uploads } from "../helpers/handleCloudinary";
-import { tokenSign } from "../helpers/generatedToken";
-import { sendEmail } from "../libs/handleSendEmail";
-import { comparePassword, hashPassword } from "../libs/handleBcrypt";
+import { uploads } from "../helpers/handleCloudinary.js";
+import { tokenSign } from "../helpers/generatedToken.js";
+import { sendEmail } from "../libs/handleSendEmail.js";
+import { comparePassword, hashPassword } from "../libs/handleBcrypt.js";
 
-import { User } from "../models/User/user.model";
-import { Role } from "../models/User/role.model";
-import { RefreshToken } from "../models/User/refreshToken.model";
+import { User } from "../models/User/user.model.js";
+import { Role } from "../models/User/role.model.js";
+import { RefreshToken } from "../models/User/refreshToken.model.js";
+
+const { uid } = rand;
 
 /**
  * It takes the username and password from the request body, checks if the user exists, if it does, it checks if the password is correct, if it is, it creates a token and a refresh token and sends them back to the client

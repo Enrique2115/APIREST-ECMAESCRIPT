@@ -1,4 +1,4 @@
-import { verifyToken } from "../helpers/generatedToken";
+import { verifyToken } from "../helpers/generatedToken.js";
 
 export const checkAuth = async (req, res, next) => {
   try {

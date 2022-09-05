@@ -1,6 +1,6 @@
-import { verifyToken } from "../helpers/generatedToken";
-import { Role } from "../models/User/role.model";
-import { User } from "../models/User/user.model";
+import { verifyToken } from "../helpers/generatedToken.js";
+import { Role } from "../models/User/role.model.js";
+import { User } from "../models/User/user.model.js";
 
 export const checkRoleAuth = (roles) => async (req, res, next) => {
   try {

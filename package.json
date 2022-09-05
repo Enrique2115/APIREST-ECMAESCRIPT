@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Squeleton for ApiRest with ES",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node build/index.js",
     "build": "babel src --out-dir build",
-    "dev": "nodemon src/index.js --exec babel-node"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "Luis Enrique Morocho Febres",

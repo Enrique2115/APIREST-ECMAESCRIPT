@@ -1,5 +1,7 @@
-import jwt, { TokenExpiredError } from "jsonwebtoken";
-import { JWT_SECRET, JWT_EXPIRATION } from "../config";
+import jwt from "jsonwebtoken";
+import { JWT_SECRET, JWT_EXPIRATION } from "../config/index.js";
+
+const { TokenExpiredError } = jwt;
 
 export const tokenSign = (user) => {
   return new Promise((resolve, reject) => {

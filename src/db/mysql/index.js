@@ -1,5 +1,5 @@
 import Sequelize from "sequelize";
-import { DATABASE, TZ_SEQUELIZE } from "../../config";
+import { DATABASE, TZ_SEQUELIZE } from "../../config/index.js";
 
 const {
   CleverCloud: { DB_HOST, DB_USER, DB_NAME, DB_PASSWORD },

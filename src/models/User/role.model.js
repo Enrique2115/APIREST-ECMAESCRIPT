@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../../db/mysql";
+import { sequelize } from "../../db/mysql/index.js";
 
 export const Role = sequelize.define("roles", {
   id_role: {
@@ -11,7 +11,10 @@ export const Role = sequelize.define("roles", {
   },
 });
 
-function initialRoles() {
+/**
+ * Create three roles in the database, if they don't already exist.
+ */
+export function initialRoles() {
   Role.create({
     id_role: 1,
     name: "admin",
